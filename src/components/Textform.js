@@ -73,6 +73,7 @@ export default function Textform(props) {
     }
   }
   
+  
   //remove spaces
   const handleSpaceClick = () =>{
     if(text === ""){
