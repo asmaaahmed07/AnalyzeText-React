@@ -75,7 +75,7 @@ export default function Textform(props) {
   
   //remove spaces
   const handleSpaceClick = () =>{
-    if(text === " "){
+    if(text === ""){
       props.showAlert("write something in the text area first", 'danger');
     }else{
     var newText = text.split(" ");
