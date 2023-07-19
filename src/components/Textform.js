@@ -1,60 +1,87 @@
+/* eslint-disable no-use-before-define */
 
 import React , {useState} from 'react';
 //use state ko use kr sakhte
 
 export default function Textform(props) {
 //upper case
+
   const handleUpClick = () =>{
     // console.log("uppercase is clicked " + text);
+    if(text === ""){
+      props.showAlert("write something in the text area first", 'danger');
+    }else{
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("converted to upper case", 'success');
+    }
     //  setText('you have clicked on handle upclick');
 
   }
   //lower case
   const handleLowClick = () =>{
     // console.log("uppercase is clicked " + text);
+    if(text === ""){
+      props.showAlert("write something in the text area first", 'danger');
+    }else{
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("converted to lower case", 'success');
+    }
     //  setText('you have clicked on handle upclick');
 
   }
   //clear text
   const handleClearClick = () =>{
     // console.log("uppercase is clicked " + text);
+    if(text === ""){
+      props.showAlert("write something in the text area first", 'danger');
+    }else{
     let newText = "";
     setText(newText);
     props.showAlert("text area cleared", 'success');
+    }
     //  setText('you have clicked on handle upclick');
 
   }
   //capatilize text
   const handleCaptClick = () => {
-    let words = text.split(" ");
-    let capitalizedWords = words.map(word => {
-      return word.charAt(0).toUpperCase() + word.slice(1);
-      
-    });
-    let newText = capitalizedWords.join(" ");
-    setText(newText);
-    props.showAlert("first letter has been capitalized", 'success');
+    if(text === ""){
+      props.showAlert("write something in the text area first", 'danger');
+    }else{
+      let words = text.split(" ");
+      let capitalizedWords = words.map(word => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+        
+      });
+      let newText = capitalizedWords.join(" ");
+      setText(newText);
+      props.showAlert("first letter has been capitalized", 'success');
+    }
+    
   }
   
   //copy text
   const handleCopyClick = ()=>{
+    if(text === ""){
+      props.showAlert("write something in the text area first", 'danger');
+    }else{
     var text = document.getElementById("myBox");
-    text.select();
+     text.select();
     navigator.clipboard.writeText(text.value);
     props.showAlert("text area copied", 'success');
+    }
   }
 
   //remove spaces
   const handleSpaceClick = () =>{
+    if(text === ""){
+      props.showAlert("write something in the text area first", 'danger');
+    }else{
     var newText = text.split(" ");
     setText(newText.join(""));
     props.showAlert("text has been combined", 'success');
+    }
   }
   
   const handleOnChange = (event) =>{
