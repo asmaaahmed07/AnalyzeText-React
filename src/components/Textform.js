@@ -72,7 +72,7 @@ export default function Textform(props) {
     props.showAlert("text area copied", 'success');
     }
   }
-
+  
   //remove spaces
   const handleSpaceClick = () =>{
     if(text === ""){
